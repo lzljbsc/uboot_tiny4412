@@ -76,14 +76,17 @@ lowlevel_init:
 	 * the below function is needed
 	 */
 #if defined(CONFIG_HAS_PMIC)
+not_used
 	bl	pmic_init
 #endif
 
 #if defined(CONFIG_ONENAND)
+not_used
 	bl	onenandcon_init
 #endif
 
 #if defined(NAND_BOOTING)
+not_used
 	bl	nand_asm_init
 #endif
 
@@ -101,6 +104,7 @@ lowlevel_init:
 	beq	after_copy		/* r0 == r1 then skip sdram init and u-boot.bin loading */
 
 #ifndef CONFIG_SMDKC220
+not_used
 	ldr	r0, =CHIP_ID_BASE
 	ldr	r1, [r0]
 	lsr	r1, r1, #8
@@ -119,6 +123,7 @@ lowlevel_init:
 	bl	uart_asm_init
 
 #if CONFIG_LL_DEBUG
+not_used
 	mov	r4, #0x4000
 .L0:
 	sub	r4, r4, #1
@@ -444,6 +449,7 @@ mmcsd_boot:
 	str	r1, [r0, r2]
 //#endif
 #else
+not_used
 #if defined(CONFIG_CLK_1000_400_200) || defined(CONFIG_CLK_1000_200_200) || defined(CONFIG_CLK_800_400_200)
 	ldr	r0, =ELFIN_CLOCK_BASE
 	ldr	r2, =CLK_DIV_FSYS2_OFFSET

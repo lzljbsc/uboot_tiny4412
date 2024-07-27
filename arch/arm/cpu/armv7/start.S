@@ -34,6 +34,7 @@
 #include <version.h>
 
 #if defined(CONFIG_S5PC110) && defined(CONFIG_EVT1) && !defined(CONFIG_FUSED)
+not_used
 	.word 0x2000
 	.word 0x0
 	.word 0x0
@@ -119,6 +120,7 @@ reset:
 	msr	cpsr,r0
 
 #if (CONFIG_OMAP34XX)
+not_used
 	/* Copy vectors to mask ROM indirect addr */
 	adr	r0, _start		@ r0 <- current position of code
 	add	r0, r0, #4		@ skip reset vector
